@@ -55,7 +55,7 @@
             src="assets/img/birthday-cake.gif"
             alt="Animated birthday cake"
           />
-          <h2 class="mb-0">Temps restant:</h2>
+          <h2 id="time-header" class="mb-0">Temps restant:</h2>
           <h2 id="countdown" class="masthead-heading mb-0"></h2>
         </div>
       </div>
@@ -93,7 +93,8 @@
         // If the count down is finished, write some text
         if (distance < 0) {
           clearInterval(x);
-          document.getElementById("countdown").innerHTML = "Aucun, c'est maintenant (ou c'est fini, ça dépend) !";
+          document.getElementById("time-header").innerHTML = "";
+          document.getElementById("countdown").innerHTML = "Joyeux anniversaire de stream !";
         }
       }, 1000);
     </script>
