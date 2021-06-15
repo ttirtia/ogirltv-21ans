@@ -42,7 +42,7 @@
       </div>
     </nav>
     <!-- Header-->
-    <header class="masthead text-center text-white">
+    <header class="masthead text-center text-white" style="height: 100vh">
       <div class="masthead-content">
         <div class="pyro">
           <div class="before"></div>
@@ -55,10 +55,8 @@
             src="assets/img/birthday-cake.gif"
             alt="Animated birthday cake"
           />
-          <h2 class="masthead-heading mb-0">Joyeux anniversaire de stream !</h2>
-          <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#messages"
-            >Clique ici</a
-          >
+          <h2 class="mb-0">Temps restant:</h2>
+          <h2 id="countdown" class="masthead-heading mb-0"></h2>
         </div>
       </div>
       <div class="bg-circle-1 bg-circle"></div>
@@ -66,79 +64,38 @@
       <div class="bg-circle-3 bg-circle"></div>
       <div class="bg-circle-4 bg-circle"></div>
     </header>
-    <!-- Content section 1-->
-    <section id="messages">
-      <div class="container px-5">
-        <div class="row gx-5 align-items-center">
-          <div class="col-lg-6 order-lg-2">
-            <div class="p-5">
-              <img
-                class="img-fluid rounded-circle"
-                width="400"
-                src="assets/img/profile.png"
-                alt="..."
-              />
-            </div>
-          </div>
-          <div class="col-lg-6 order-lg-1">
-            <blockquote class="blockquote border-0 p-0">
-              <p class="fst-italic lead">
-                <i class="fa fa-quote-left fa-sm me-2" style></i>
-                Ceci est un message d'anniversiare hyper original auquel j'ai
-                énormément réfléchi. J'en suis très fier.
-                <i class="fa fa-quote-right fa-sm ms-2"></i>
-              </p>
-              <footer class="blockquote-footer">Cavalon
-                <img
-                  class="img-fluid"
-                  width="50"
-                  src="assets/img/kappa.png"
-                  alt="Kappa"
-                />
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Content section 2-->
-    <section>
-      <div class="container px-5">
-        <div class="row gx-5 align-items-center">
-          <div class="col-lg-6">
-            <div class="p-5">
-              <img
-                class="img-fluid rounded-circle"
-                width="400"
-                src="assets/img/profile.png"
-                alt="..."
-              />
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <blockquote class="blockquote border-0 p-0">
-              <p class="fst-italic lead">
-                <i class="fa fa-quote-left fa-sm me-2" style></i>
-                Miaou !
-                <i class="fa fa-quote-right fa-sm ms-2"></i>
-              </p>
-              <footer class="blockquote-footer">Caline</footer>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Footer-->
-    <footer class="mt-5 py-3 bg-dark">
-      <div class="container px-5">
-        <p class="m-0 text-center text-white small">
-          Copyright &copy; OgirlTV 2021
-        </p>
-      </div>
-    </footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script>
+      // Set the date we're counting down to
+      var countDownDate = new Date("Jun 28, 2021 19:00:00").getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function () {
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="countdown"
+        document.getElementById("countdown").innerHTML =
+          days + "j " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerHTML = "Aucun, c'est maintenant (ou c'est fini, ça dépend) !";
+        }
+      }, 1000);
+    </script>
   </body>
 </html>
