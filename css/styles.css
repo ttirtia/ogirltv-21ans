@@ -11110,3 +11110,25 @@ header.masthead .bg-circle-4 {
     margin-top: 30%;
     margin-left: 80%; } }
 
+img.emote {
+  position: absolute;
+  top: 90%;
+  opacity: 0;
+  transition: top 10s linear;
+  animation: FadeInOut 10s infinite alternate ease-in-out;
+}
+
+@keyframes FadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}
