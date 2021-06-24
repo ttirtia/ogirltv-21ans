@@ -124,7 +124,7 @@
           imgElement.style.left = horizontalPosition + "px";
           imgElement.classList.add("emote");
           imgElement.hidden = false;
-          setTimeout(function() { imgElement.style.top = "10%"; }, 10);
+          setTimeout(function() { imgElement.style.top = "10%"; }, 50);
           setTimeout(function() { imgElement.remove() }, 10000)
         }
 
@@ -135,7 +135,7 @@
           imgElement.hidden = true;
           document.getElementById("page-top").appendChild(imgElement);
           moveImage(imgElement);
-        }, 5000);
+        }, 3000);
       });
     </script>
   </body>
